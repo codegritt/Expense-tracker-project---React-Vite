@@ -1,7 +1,9 @@
+import Frontpage from "./Components/Frontpage";
+
 const App = () => {
   return (
     <>
-      <div>Hello</div>
+      <Frontpage />
     </>
   );
 };
