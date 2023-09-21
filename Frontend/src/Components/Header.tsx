@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/auth";
 import { Company, Contact, Features, Home } from "./Frontpage";
 
 const Header = () => {
   const [tab, setTab] = useState("Home");
+  const auth = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    auth.logout();
+    navigate("/");
+  };
 
   return (
     <>
@@ -22,14 +30,16 @@ const Header = () => {
             </a>
 
             <div className="flex items-center lg:order-2">
-              <Link to="/login">
-                <button className="text-gray-800 border dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-                  LOGIN
-                </button>
-              </Link>
-              <button className="text-gray-800 border dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-                SIGN UP
+              <p className="mr-5 text-white font-medium">
+                Welcome {auth.user} !
+              </p>
+              <button
+                onClick={handleLogout}
+                className="text-gray-800 border dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+              >
+                LOG OUT
               </button>
+
               <button
                 data-collapse-toggle="mobile-menu-2"
                 type="button"
