@@ -54,10 +54,10 @@
 }
 
 .show-box {
-  -webkit-animation: SHOW-BOX 0.5s ease;
-  -moz-animation: SHOW-BOX 0.5s ease;
-  -o-animation: SHOW-BOX 0.5s ease;
-  animation: SHOW-BOX 0.5s ease;
+  -webkit-animation: SHOW-BOX 0.7s ease;
+  -moz-animation: SHOW-BOX 0.7s ease;
+  -o-animation: SHOW-BOX 0.7s ease;
+  animation: SHOW-BOX 0.7s ease;
 }
 
 body {

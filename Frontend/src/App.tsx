@@ -1,11 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
+import Loginform from "./Components/Loginform";
 
 const App = () => {
   return (
     <>
-      <div>
-        <Header />
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Header />}></Route>
+          <Route path="/login" element={<Loginform />}></Route>
+        </Routes>
+      </Router>
     </>
   );
 };
