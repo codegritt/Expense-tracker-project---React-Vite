@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="text-center mt-10 text-xs text-secondary-heavy leading-5 tracking-wider">
       <div>
-        Copyright &copy; {currentYear} Gokul's Money manager Pte Ltd | All
+        Copyright &copy; {currentYear} Gokul's Money manager Private Ltd | All
         Rights Reserved. Version 1.0
       </div>
       <div>

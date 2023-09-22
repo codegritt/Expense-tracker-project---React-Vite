@@ -1,18 +1,29 @@
 import { useState } from "react";
+import { useAuth } from "../utils/auth";
+import Dashboard from "./Dashboard";
+import Income from "./Income";
+import Expense from "./Expense";
 
 export const Tracker = () => {
   const [activeTab, setActiveTab] = useState("Dashboard");
+
+  const auth = useAuth();
 
   return (
     <>
       <div className="grid grid-cols-[300px_minmax(800px,_1fr)_100px] gap-4">
         <div className="h-screen px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 rounded-2xl">
-          <ul className="space-y-2 font-medium">
+          <h1 className="mr-5 text-white ml-4 text-xl font-medium">Welcome {auth.user} !</h1>
+          <ul className="space-y-2 font-medium text-xl mt-3">
             <li>
               <a
                 href="#"
                 onClick={() => setActiveTab("Dashboard")}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={
+                  activeTab === "Dashboard"
+                    ? "flex items-center p-2 ml-4 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    : "flex items-center p-2 ml-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                }
               >
                 <svg
                   className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -32,7 +43,11 @@ export const Tracker = () => {
               <a
                 href="#"
                 onClick={() => setActiveTab("Incomes")}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={
+                  activeTab === "Incomes"
+                    ? "flex items-center p-2 ml-4 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    : "flex items-center p-2 ml-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                }
               >
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -50,7 +65,11 @@ export const Tracker = () => {
               <a
                 href="#"
                 onClick={() => setActiveTab("Expenses")}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className={
+                  activeTab === "Expenses"
+                    ? "flex items-center p-2 ml-4 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    : "flex items-center p-2 ml-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+                }
               >
                 <svg
                   className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -69,13 +88,19 @@ export const Tracker = () => {
 
         <div className="h-screen px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 rounded-2xl text-white show-box">
           {activeTab === "Dashboard" && (
-            <div className="p-2 show-box">this is Dashboard</div>
+            <div className="p-2 pt-0 show-box">
+              <Dashboard />
+            </div>
           )}
           {activeTab === "Incomes" && (
-            <div className="p-2 show-box">this is Incomes</div>
+            <div className="p-2 pt-0 show-box">
+              <Income />
+            </div>
           )}
           {activeTab === "Expenses" && (
-            <div className="p-2 show-box">this is Expenses</div>
+            <div className="p-2 pt-0 show-box">
+              <Expense />
+            </div>
           )}
         </div>
       </div>
