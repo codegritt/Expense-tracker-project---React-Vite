@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useAuth } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
+import { LoaderContext } from "../context/LoaderContext";
 
 const Loginform = () => {
   const [user, setUser] = useState("");
   const auth = useAuth();
   const navigate = useNavigate();
+  const { setLoading } = useContext(LoaderContext);
 
   const handleLogin = () => {
+    // setLoading(true);
     auth.login(user);
     navigate("/", { replace: true });
   };
@@ -29,7 +32,10 @@ const Loginform = () => {
         </div>
 
         <div className="relative bg-gray-800 flex flex-col justify-center min-h-screen overflow-hidden show-box">
-          <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+          <h1 className="w-10/12 ml-16 mt-2 text-white text-center p-8 text-5xl border rounded-full">
+            EXPENSE TRACKER APP
+          </h1>
+          <div className="w-full p-6 m-auto mt-7 bg-white rounded-md shadow-md lg:max-w-xl">
             <h1 className="text-3xl font-semibold text-center text-gray-800 underline">
               LOGIN
             </h1>

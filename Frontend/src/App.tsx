@@ -3,10 +3,12 @@ import { RequireAuth } from "./utils/RequireAuth";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Loginform from "./Components/Loginform";
+import Loader from "./ReusableComponents/Loader/Loader";
 
 const App = () => {
   return (
     <>
+      <Loader loading={undefined} local={undefined} />
       <AuthProvider>
         <Router>
           <Routes>

@@ -235,35 +235,3 @@ export const Home = () => {
     </>
   );
 };
-
-export const Company = () => {
-  return (
-    <div style={{ border: "2px solid red" }} className="">
-      hello
-    </div>
-  );
-};
-
-export const Features = () => {
-  return (
-    <>
-      <div
-        style={{ border: "2px solid red" }}
-        className="text-3xl font-bold underline"
-      >
-        Hello
-      </div>
-    </>
-  );
-};
-
-export const Contact = () => {
-  return (
-    <div
-      style={{ border: "2px solid red" }}
-      className="text-3xl font-bold underline"
-    >
-      This is the Contact
-    </div>
-  );
-};
