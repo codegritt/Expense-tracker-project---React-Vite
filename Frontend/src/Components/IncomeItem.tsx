@@ -1,26 +1,4 @@
 import styled from "styled-components";
-import {
-  bitcoin,
-  book,
-  calender,
-  card,
-  circle,
-  clothing,
-  comment,
-  dollar,
-  food,
-  freelance,
-  medical,
-  money,
-  piggy,
-  stocks,
-  takeaway,
-  trash,
-  tv,
-  users,
-  yt,
-} from "../utils/Icons";
-import Button from "./Button";
 
 function IncomeItem({
   id,
@@ -33,92 +11,46 @@ function IncomeItem({
   indicatorColor,
   type,
 }) {
-  const categoryIcon = () => {
-    switch (category) {
-      case "salary":
-        return money;
-      case "freelancing":
-        return freelance;
-      case "investments":
-        return stocks;
-      case "stocks":
-        return users;
-      case "bitcoin":
-        return bitcoin;
-      case "bank":
-        return card;
-      case "youtube":
-        return yt;
-      case "other":
-        return piggy;
-      default:
-        return "";
-    }
-  };
-
-  const expenseCatIcon = () => {
-    switch (category) {
-      case "education":
-        return book;
-      case "groceries":
-        return food;
-      case "health":
-        return medical;
-      case "subscriptions":
-        return tv;
-      case "takeaways":
-        return takeaway;
-      case "clothing":
-        return clothing;
-      case "travelling":
-        return freelance;
-      case "other":
-        return circle;
-      default:
-        return "";
-    }
-  };
-
   console.log("type", type);
 
   return (
-    <IncomeItemStyled indicator={indicatorColor}>
-      <div className="icon">
-        {type === "expense" ? expenseCatIcon() : categoryIcon()}
-      </div>
-      <div className="content">
-        <h5>{title}</h5>
-        <div className="inner-content">
-          <div className="text">
-            <p>
-              {dollar} {amount}
-            </p>
-            <p>{calender}</p>
-            <p>
-              {comment}
-              {description}
-            </p>
-          </div>
-          <div className="btn-con">
-            <Button
-              icon={trash}
-              bPad={"1rem"}
-              bRad={"50%"}
-              bg={"var(--primary-color"}
-              color={"#fff"}
-              iColor={"#fff"}
-              hColor={"var(--color-green)"}
-              onClick={() => deleteItem(id)}
-            />
+    <div className="mt-5">
+      <IncomeItemStyled indicator={indicatorColor}>
+        <div className="content">
+          <span className="flex font-semibold">
+            Title : <p className="ml-3">{title}</p>
+          </span>
+          <span className="flex font-semibold">
+            Date : <p className="ml-3">{date}</p>
+          </span>
+
+          <div className="inner-content">
+            <div className="text">
+              <span className="flex font-semibold">
+                Amount :<p className="ml-3">$ {amount}</p>
+              </span>
+              <span className="flex font-semibold">
+                Comment : <p className="ml-3">{description}</p>
+              </span>
+            </div>
+
+            <div className="btn-con">
+              <button
+                onClick={() => deleteItem(id)}
+                className="text-gray-800 border dark:text-white hover:bg-gray-50 focus:ring-0 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-0"
+              >
+                Delete
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </IncomeItemStyled>
+      </IncomeItemStyled>
+    </div>
   );
 }
 
 const IncomeItemStyled = styled.div`
-  background: #fcf6f9;
+  background: grey;
   border: 2px solid #ffffff;
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
   border-radius: 20px;
@@ -127,13 +59,13 @@ const IncomeItemStyled = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-  width: 100%;
-  color: #222260;
+  width: 50%;
+  color: #fff;
   .icon {
     width: 80px;
     height: 80px;
     border-radius: 20px;
-    background: #f5f5f5;
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;

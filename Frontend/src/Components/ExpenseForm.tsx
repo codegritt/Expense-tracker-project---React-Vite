@@ -109,6 +109,10 @@ function ExpenseForm() {
           color={"#fff"}
         />
       </div>
+      <hr></hr>
+      <h1 className="text-2xl font-semibold whitespace-nowrap dark:text-white">
+        Expense List
+      </h1>
     </FormStyled>
   );
 }

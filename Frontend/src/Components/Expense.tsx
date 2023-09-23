@@ -13,9 +13,10 @@ const Expense = () => {
   return (
     <>
       <div>
-        <h1 className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+        <h1 className="text-center text-2xl mb-3 font-semibold whitespace-nowrap dark:text-white">
           Expenses
         </h1>
+        <hr></hr>
         <div className="mt-5">
           <ExpenseForm />
         </div>

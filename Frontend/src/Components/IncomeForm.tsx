@@ -109,6 +109,11 @@ function Form() {
           color={"#fff"}
         />
       </div>
+      <hr></hr>
+
+      <h1 className="text-2xl font-semibold whitespace-nowrap dark:text-white">
+        Income List
+      </h1>
     </FormStyled>
   );
 }

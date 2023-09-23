@@ -7,33 +7,37 @@ function History() {
   const [...history] = transactionHistory();
 
   return (
-    <HistoryStyled>
-      <h2>Recent History</h2>
-      {history.map((item) => {
-        const { _id, title, amount, type } = item;
-        return (
-          <div key={_id} className="history-item">
-            <p
-              style={{
-                color: type === "expense" ? "red" : "var(--color-green)",
-              }}
-            >
-              {title}
-            </p>
+    <>
+      <HistoryStyled>
+        <h2 className="text-2xl self-center font-semibold whitespace-nowrap dark:text-white">
+          Recent History
+        </h2>
+        {history.map((item) => {
+          const { _id, title, amount, type } = item;
+          return (
+            <div key={_id} className="history-item">
+              <p
+                style={{
+                  color: type === "expense" ? "red" : "var(--color-green)",
+                }}
+              >
+                {title}
+              </p>
 
-            <p
-              style={{
-                color: type === "expense" ? "red" : "var(--color-green)",
-              }}
-            >
-              {type === "expense"
-                ? `-${amount <= 0 ? 0 : amount}`
-                : `+${amount <= 0 ? 0 : amount}`}
-            </p>
-          </div>
-        );
-      })}
-    </HistoryStyled>
+              <p
+                style={{
+                  color: type === "expense" ? "red" : "var(--color-green)",
+                }}
+              >
+                {type === "expense"
+                  ? `-${amount <= 0 ? 0 : amount}`
+                  : `+${amount <= 0 ? 0 : amount}`}
+              </p>
+            </div>
+          );
+        })}
+      </HistoryStyled>
+    </>
   );
 }
 
@@ -42,7 +46,7 @@ const HistoryStyled = styled.div`
   flex-direction: column;
   gap: 1rem;
   .history-item {
-    background: #fcf6f9;
+    background: grey;
     border: 2px solid #ffffff;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     padding: 1rem;
