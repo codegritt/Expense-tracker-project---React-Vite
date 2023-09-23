@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { dateFormat } from "../utils/dateFormat";
 
 function IncomeItem({
   id,
@@ -21,7 +22,7 @@ function IncomeItem({
             Title : <p className="ml-3">{title}</p>
           </span>
           <span className="flex font-semibold">
-            Date : <p className="ml-3">{date}</p>
+            Date : <p className="ml-3">{dateFormat(date)}</p>
           </span>
 
           <div className="inner-content">
